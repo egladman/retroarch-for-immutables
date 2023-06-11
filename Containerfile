@@ -122,7 +122,9 @@ COPY --from=devel-rootfs-build /rootfs /
 
 WORKDIR /rootfs/src
 
-COPY . .
+RUN set -eux; \
+    git config --global url."https://github.com/egladman".insteadOf "git@github.com:egladman"; \
+    git clone --recursive https://github.com/egladman/rafi.git .
 
 ARG DEBUG=1
 ARG XDG_CONFIG_HOME
