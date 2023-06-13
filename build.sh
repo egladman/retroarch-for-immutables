@@ -94,6 +94,22 @@ main() {
 	       rm -rf build
 	       ;;
 	   #@ i,image | Build image
+	   d|dev|image-dev)
+	       IMAGE_VARIANT=devel
+	       case "$2" in
+		   ''|podman)
+		       podman build --build-arg RETROARCH_STAGE=retroarch-noop --tag "${IMAGE_REGISTRY}${IMAGE_REPOSITORY}:$(image_tag)" --target "runtime-${IMAGE_VARIANT}" .
+		       ;;
+		   docker)
+		       docker buildx build --build-arg RETROARCH_STAGE=retroarch-noop --file Containerfile --tag "${IMAGE_REGISTRY}${IMAGE_REPOSITORY}:$(image_tag)" --target "runtime-${IMAGE_VARIANT}" .
+		       ;;
+		   *)
+		       log::fatal "Unsupported: $2"
+		       ;;
+	       esac
+	       ;;
+
+	   #@ i,image | Build image
 	   i|image)
 	       case "$2" in
 		   ''|podman)
@@ -111,10 +127,10 @@ main() {
 	   r|run)
 	       case "$2" in
 		   ''|podman)
-		       podman run --volume "${PWD:?}:/src" --rm -it "${IMAGE_REGISTRY}${IMAGE_REPOSITORY}:$(image_tag)" bash
+		       podman run --volume "${PWD:?}:/src/project" --rm -it "${IMAGE_REGISTRY}${IMAGE_REPOSITORY}:$(image_tag)" bash
 		       ;;
 		   docker)
-		       docker run --volume "${PWD:?}:/src" --rm -it "${IMAGE_REGISTRY}${IMAGE_REPOSITORY}:$(image_tag)" bash
+		       docker run --volume "${PWD:?}:/src/project" --rm -it "${IMAGE_REGISTRY}${IMAGE_REPOSITORY}:$(image_tag)" bash
 		       ;;
 		   *)
 		       log::fatal "Unsupported: $2"
@@ -144,7 +160,7 @@ main() {
 	   oci-bundle-package)
 	       mkdir -p "build/${argv}" || true
 	       "$0" oci-bundle
-	       tar -czf "build/${argv}/retroarch-rafi.tar" build/oci-bundle
+	       sudo tar -czf "build/${argv}/retroarch-rafi.tar" build/oci-bundle
 	       printf '%s\n' "build/${argv}"
 	       ;;
            *)

@@ -1,6 +1,34 @@
 # retroarch-immutables
 
+## Quickstart
+
+### systemd-nspawn
+
+If you're linux distribution ships with a modern version of systemd then chances are this is already installed.
+
+1. Run container
+
+```
+./nspawn.sh <path/to/oci-bundle.tar>
+```
+
+*Note:* The oci bundle argument can either be a directory or `.tar` file
+
+### Docker
+
+todo
+
+### Podman
+
+todo
+
 ## Development
+
+### Dependencies
+
+- Docker or Podman
+
+### Build
 
 1. Build docker image and start container with interactive session
 
@@ -15,20 +43,14 @@
 ./main help
 ```
 
-## Release
+## Release/Packaging
 
 The project is packaged as an OCI compliant image therefore can be ran by most container runtimes.
 
 1. Build oci image
 
 ```
-./build.sh oci-bundle
+./build.sh oci-bundle-package
 ```
 
-2. Run using systemd-nspawn
-
-```
-./launch.sh build/oci-bundle
-```
-
-*Note:* The oci bundle argument can either be a directory or `.tar` file
+A `.tar` file will be written to directory `build/oci-bundle-package`

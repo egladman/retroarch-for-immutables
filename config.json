@@ -6,7 +6,7 @@
 			"gid": 4826
 		},
 	        "args": [
-		        "/src/entrypoint.sh",
+		        "/entrypoint",
 		        "retroarch",
 		        "-v"
 		],
@@ -14,10 +14,10 @@
 			"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
 		        "TERM=xterm"
 		],
-	        "cwd": "/app/retroarch"
+	        "cwd": "/"
 	},
 	"root": {
 		"path": "rootfs"
 	},
-	"hostname": "retroarch-rafi"
+	"hostname": "retroarch"
 }
