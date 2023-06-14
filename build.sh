@@ -157,12 +157,6 @@ main() {
 	       cp config.json "build/${argv}/config.json"
 	       printf '%s\n' "build/${argv}"
 	       ;;
-	   oci-bundle-package)
-	       mkdir -p "build/${argv}" || true
-	       "$0" oci-bundle
-	       sudo tar -czf "build/${argv}/retroarch-rafi.tar" build/oci-bundle
-	       printf '%s\n' "build/${argv}"
-	       ;;
            *)
 	       log::_fatal 128 "Invalid argument: '$argv'. Run $0 help" >&2
                ;;
