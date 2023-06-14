@@ -60,7 +60,7 @@ IMAGE_VARIANT=devel ./build.sh run
 
 The project is packaged as an [OCI runtime bundle](https://github.com/opencontainers/runtime-spec/blob/master/bundle.md) therefore can be ran by most container runtimes with minimal effort.
 
-1. Build oci image
+1. Build oci runtime bundle
 
 ```
 ./build.sh oci-bundle
