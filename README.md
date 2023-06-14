@@ -9,10 +9,8 @@ If you're linux distribution ships with a modern version of systemd then chances
 1. Run container
 
 ```
-./nspawn.sh <path/to/oci-bundle.tar>
+./run-nspawn.sh <path/to/oci-bundle>
 ```
-
-*Note:* The oci bundle argument can either be a directory or `.tar` file
 
 ### Docker
 

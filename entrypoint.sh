@@ -21,7 +21,7 @@ set -o allexport
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$xdg_config_home_fallback}"
 XDG_STATE_HOME="${XDG_STATE_HOME:-$xdg_state_home_fallback}"
 XDG_DATA_HOME="${XDG_DATA_HOME:-$xdg_data_home_fallback}"
-XDG_RUNTIME_DIR="/tmp"
+XDG_RUNTIME_DIR="/tmp" # This path must match the bind mounted sockets
 
 RAFI_RUNTIME_ROOT="/app/data/rafi/rootfs"
 PATH="${RAFI_RUNTIME_ROOT:?}/bin:${RAFI_RUNTIME_ROOT:?}/usr/bin:${PATH}"
@@ -43,6 +43,9 @@ libretro_directory = "/app/data/rafi/rootfs/usr/lib/libretro"
 libretro_info_path = "/app/data/rafi/rootfs/usr/share/libretro/info"
 assets_directory = "/app/data/rafi/rootfs/usr/share/libretro/assets"
 joypad_autoconfig_dir = "/app/data/rafi/rootfs/usr/share/libretro/autoconfig"
+
+audio_driver = "pulse"
+input_driver = "linuxraw""
 
 EOF
 
