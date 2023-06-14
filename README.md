@@ -22,13 +22,13 @@ Nope. Use the [official flatpak](https://github.com/flathub/org.libretro.RetroAr
 
 I was curious how one would go about running a GUI using [systemd-nspawn](https://www.freedesktop.org/software/systemd/man/systemd-nspawn.html). 
 So against my better judgement, I wrote it. While nspawn isn't the best tool for job it's often already present on the user's machine. There's huge
-implications to shipping software without requring additonal dependencies to be installed.
+implications to shipping software without requiring additonal dependencies to be installed.
 
 Still not convinced? Projects like Flatpak was explicity written to address the inherit packaging challenges faced on the desktop.
 
-- Dedupped dependencies
+- Dedupped:
   Flatpak dependencies are shared across packages. So they take up less storage when compared to OCI images/bundles.
-- Rootless
+- Rootless:
   Flatpak is able to run unprivileged by utilizing [user namespaces](https://www.redhat.com/sysadmin/building-container-namespaces) (via [bubblewrap](https://github.com/containers/bubblewrap)) rather than [setting the effective user](https://www.gnu.org/software/libc/manual/html_node/Setuid-Program-Example.html) by calling `setuid`.
 
 Additonal reading:
