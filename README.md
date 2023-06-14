@@ -1,4 +1,4 @@
-# retroarch-immutables
+# retroarch-for-immutables
 
 ## Quickstart
 
