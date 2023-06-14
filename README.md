@@ -16,7 +16,7 @@ If you're linux distribution ships with a modern version of systemd then chances
 
 ## Commonly Asked Questions
 
-1. Should I use this?
+### Should I use this?
 
 Nope. Use the [official flatpak](https://github.com/flathub/org.libretro.RetroArch).
 
@@ -24,9 +24,7 @@ I was curious how one would go about running a GUI using [systemd-nspawn](https:
 So against my better judgement, I wrote it. While nspawn isn't the best tool for job it's often already present on the user's machine. There's huge
 implications to shipping software without requring additonal dependencies to be installed.
 
-Still not convinced? Consider the following:
-
-Projects like Flatpak was explicity written to address the inherit packaging challenges faced on the desktop.
+Still not convinced? Projects like Flatpak was explicity written to address the inherit packaging challenges faced on the desktop.
 
 - Dedupped dependencies
   Flatpak dependencies are shared across packages. So they take up less storage when compared to OCI images/bundles.
